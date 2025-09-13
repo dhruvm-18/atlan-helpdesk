@@ -61,7 +61,7 @@ We implemented a production-style **AI Helpdesk System** centered on the pipelin
 - **Priority Assignment**: P0 / P1 / P2 using urgency & blocker heuristics
 - **Multi-Channel Ingestion**: Email, WhatsApp, Voice, Live Chat
 
-![AI Classification Pipeline](Classification%20Pipeline.png)
+![AI Classification Pipeline](ClassificationPipeline.png)
 
 ### 2) 🔍 RAG Knowledge Base
 
@@ -93,6 +93,28 @@ We implemented a production-style **AI Helpdesk System** centered on the pipelin
 - **React Query** for live, resilient data flows
 
 ![AI Response Generation](Response%20generated.jpg)
+
+---
+
+## 🏗️ System Architecture Overview
+
+Our AI-powered helpdesk system consists of several interconnected components working together to provide intelligent customer support automation:
+
+### Architecture Components
+
+![System Architecture Overview](Architecture.png)
+
+### AI Classification Pipeline
+
+![AI Classification Pipeline](ClassificationPipeline.png)
+
+### Knowledge Base & RAG System
+
+![Knowledge Base Architecture](Knowledgebase.png)
+
+### Data Processing Pipeline
+
+![Data Processing Pipeline](Datapipeline.png)
 
 ---
 
@@ -287,6 +309,8 @@ gunicorn -w 4 -b 0.0.0.0:5001 app:app
 ### Dashboard View
 
 The main dashboard shows all tickets with powerful filtering and analytics.
+
+![Dashboard Overview](Dashboard.jpg)
 
 ![Ticket Query Interface](Ticket%20Query.jpg)
 
