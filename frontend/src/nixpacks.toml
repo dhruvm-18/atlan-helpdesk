@@ -12,7 +12,7 @@ paths = ["/app/frontend/node_modules/.bin"]
 [phases.build]
 # Build the frontend
 cmds = [
-  "cd frontend && npm run build"
+  "cd frontend && npm run dev"
 ]
 
 [start]
