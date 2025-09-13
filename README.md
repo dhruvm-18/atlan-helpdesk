@@ -754,6 +754,3 @@ CMD ["gunicorn","-w","4","-b","0.0.0.0:5001","backend.app:app"]
 - Search or open issues: [https://github.com/your-username/ai-helpdesk-system/issues](https://github.com/your-username/ai-helpdesk-system/issues)
 - Start a discussion for ideas and feedback
 
-```
-
-```
