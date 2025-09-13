@@ -1,4 +1,3 @@
-````markdown
 # 🤖 Customer Support Copilot — AI-Powered Helpdesk (RAG + Classification)
 
 An intelligent customer support system that **ingests, classifies, prioritizes, and responds** to tickets using AI and **Retrieval-Augmented Generation (RAG)**.  
@@ -148,8 +147,7 @@ flowchart LR
   ROUTE --> RESP
   RESP --> FE
   Dash --> FE
-```
-````
+
 
 ### Sequence: New Ticket → Response/Routing
 
