@@ -1,5 +1,29 @@
 [
   {
+    "id": "TICKET-264",
+    "channel": "email",
+    "createdAt": "2025-09-13T14:20:30.155890Z",
+    "subject": "Agent Query: Connector - P1 (Medium)",
+    "body": "Importing lineage from Airflow jobs - We run hundreds of ETL jobs in Airflow, and we need to see that lineage reflected in Atlan. I've read that Atlan can integrate with Airflow, but how do we configure it to correctly map our DAGs to the specific datasets they are transforming? The current documentation is a bit high-level.\n\n",
+    "classification": {
+      "topic": "Connector",
+      "sentiment": "Curious",
+      "priority": "P1 (Medium)"
+    }
+  },
+  {
+    "id": "TICKET-263",
+    "channel": "email",
+    "createdAt": "2025-09-13T14:19:44.106720Z",
+    "subject": "Agent Query: How-to - P2 (Low)",
+    "body": "How to surface sample rows and schema changes? - Hi, we've successfully connected our Redshift cluster, and the assets are showing up. However, my data analysts are asking how they can see sample data or recent schema changes directly within Atlan without having to go back to Redshift. Is this feature available? I feel like I'm missing something obvious.\n\n",
+    "classification": {
+      "topic": "How-to",
+      "sentiment": "Curious",
+      "priority": "P2 (Low)"
+    }
+  },
+  {
     "id": "TICKET-262",
     "channel": "email",
     "createdAt": "2025-09-13T10:11:00.034547Z",
