@@ -1,188 +1,227 @@
-# 🤖 AI-Powered Helpdesk Demo
+# 🤖 AI-Powered Helpdesk System
 
-A demonstration of an AI-powered helpdesk system built with **React.js frontend** and **Flask backend**. Features intelligent ticket classification, RAG-based responses, and modern UI components.
+An intelligent customer support system that automatically classifies tickets, analyzes sentiment, assigns priorities, and generates contextual responses using AI and RAG (Retrieval-Augmented Generation) technology.
 
-## 🚀 Features
+![Dashboard Overview](Dashboard.jpg)
 
-### Frontend (React + TypeScript + Vite)
-- **Modern UI**: Built with Tailwind CSS and shadcn/ui components
-- **Smooth Animations**: Framer Motion for delightful micro-interactions
-- **Responsive Design**: Works seamlessly on desktop and mobile
-- **Dark/Light Theme**: Persistent theme switching
-- **Real-time Charts**: Interactive data visualization with Recharts
-- **Advanced Filtering**: Multi-dimensional ticket filtering and search
+## ✨ Features
+
+### 🎯 Intelligent Ticket Classification
+- **Topic Detection**: Automatically categorizes tickets into relevant topics (Connector, Lineage, API, SSO, etc.)
+- **Sentiment Analysis**: Identifies customer emotions (Frustrated, Curious, Angry, Neutral)
+- **Priority Assignment**: Assigns P0/P1/P2 priorities based on urgency indicators
+- **Multi-channel Support**: Handles tickets from email, WhatsApp, voice, live chat, and other channels
+
+### 🧠 AI-Powered Response Generation
+- **RAG System**: Uses knowledge base to provide accurate, contextual responses
+- **Smart Routing**: Routes complex queries to specialist teams when needed
+- **Citation Tracking**: Always provides source references for knowledge-based answers
+- **Response Personalization**: Adapts tone and content based on ticket context
+
+![AI Response Generation](Response%20generated.jpg)
+
+### 📊 Analytics & Insights
+- **Real-time Dashboard**: Visual overview of ticket distribution and trends
+- **Interactive Charts**: Topic distribution, sentiment analysis, and priority breakdowns
+- **Advanced Filtering**: Multi-dimensional search and filtering capabilities
+- **Performance Metrics**: Track response times and resolution rates
+
+### 🎨 Modern User Interface
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Dark/Light Theme**: Persistent theme switching with user preferences
+- **Smooth Animations**: Delightful micro-interactions using Framer Motion
 - **Accessibility**: Full keyboard navigation and screen reader support
 
-### Backend (Flask + Python)
-- **AI Classification**: Intelligent topic, sentiment, and priority detection
-- **RAG System**: Retrieval-Augmented Generation for knowledge-based responses
-- **Modular Architecture**: Clean separation of concerns with blueprints
-- **Type Safety**: Pydantic models for request/response validation
-- **CORS Support**: Configured for cross-origin requests
+## 🚀 Quick Start
 
-### AI Capabilities
-- **Topic Classification**: Automatically categorizes tickets into 9+ topics
-- **Sentiment Analysis**: Detects customer emotion (Frustrated, Curious, Angry, Neutral)
-- **Priority Assignment**: Assigns P0/P1/P2 based on urgency indicators
-- **Smart Routing**: RAG responses for knowledge topics, team routing for others
-- **Citation Tracking**: Always provides source URLs for RAG answers
-
-## 📋 Prerequisites
-
-- **Node.js** 18+ and npm
-- **Python** 3.11+
-- **Git**
-
-## 🛠️ Quick Start
+### Prerequisites
+- Node.js 18+ and npm
+- Python 3.11+
+- Git
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/ai-helpdesk-demo.git
-cd ai-helpdesk-demo
+git clone https://github.com/your-username/ai-helpdesk-system.git
+cd ai-helpdesk-system
 ```
 
 ### 2. Backend Setup
 ```bash
 cd backend
 
-# Install dependencies
+# Install Python dependencies
 pip install -r requirements.txt
 
-# Copy environment file (optional)
+# Copy environment configuration (optional)
 cp .env.example .env
 
 # Start the Flask server
 python app.py
 ```
 
-The backend will start on `http://localhost:5001`
+The backend will be available at `http://localhost:5001`
 
 ### 3. Frontend Setup
 ```bash
 cd frontend
 
-# Install dependencies (use --legacy-peer-deps if you encounter conflicts)
-npm install --legacy-peer-deps
+# Install Node.js dependencies
+npm install
 
 # Start the development server
 npm run dev
 ```
 
-The frontend will start on `http://localhost:5173`
+The frontend will be available at `http://localhost:5173`
 
+### 4. Access the Application
+Open your browser and navigate to `http://localhost:5173` to start using the AI helpdesk system!
 
+## 📱 How to Use
 
-### 4. Open Your Browser
-Navigate to `http://localhost:5173` to see the application in action!
+### Dashboard View
+The main dashboard provides a comprehensive overview of all support tickets with powerful filtering and analytics capabilities.
 
-## 📊 Sample Data
+![Ticket Query Interface](Ticket%20Query.jpg)
 
-The application comes with 16 pre-loaded sample tickets covering various scenarios:
-- Connector issues (Snowflake, Tableau, etc.)
-- Lineage problems
-- API/SDK questions
-- SSO configuration
-- Data governance queries
-- And more...
+**Key Features:**
+- View all classified tickets in an interactive table
+- Filter by topic, sentiment, priority, and channel
+- Search through ticket content
+- Analyze trends with visual charts
+- Export data for reporting
 
-## 🎯 Usage Guide
+### AI Agent Interface
+The agent panel allows you to process new tickets and see the AI classification and response generation in real-time.
 
-### Dashboard Tab
-1. **View Tickets**: Browse all classified tickets in an interactive table
-2. **Filter & Search**: Use the comprehensive filtering system
-3. **Visual Analytics**: Explore topic distribution and sentiment charts
-4. **Ticket Details**: Click the eye icon to view full ticket details
+**Workflow:**
+1. **Input Ticket**: Paste or type a customer support request
+2. **Select Channel**: Choose the communication channel (email, chat, etc.)
+3. **AI Processing**: Click to run the ticket through the AI pipeline
+4. **View Results**: See classification analysis and generated response
+5. **Review History**: Access previous queries and responses
 
-### Agent Tab
-1. **Enter Ticket**: Paste or type a customer support request
-2. **Select Channel**: Choose the communication channel
-3. **Classify & Respond**: Click to process through AI pipeline
-4. **View Results**: See both internal analysis and final response
-5. **Browse History**: Access recent queries for quick reference
+### Specialist Team Routing
+For complex queries that require human expertise, the system intelligently routes tickets to appropriate specialist teams.
 
-## 🔧 Configuration
+![Specialist Team Routing](Routing%20Specialist%20Team.jpg)
 
-### Backend Configuration (.env)
-```bash
-FLASK_PORT=5001                    # Backend server port
-CORS_ORIGIN=http://localhost:5173  # Frontend URL for CORS
-USE_ONLINE_RAG=false              # Enable online documentation scraping
-GEMINI_API_KEY=your_key_here      # Optional: For enhanced AI features
-```
-
-### Adding Knowledge Base Content
-To expand the RAG system:
-
-1. **Online Mode**: Set `USE_ONLINE_RAG=true` to fetch from Atlan docs
-2. **Offline Mode**: Edit `backend/core/ai.py` and update `KB_CONTENT` dictionary
-3. **Custom Sources**: Modify the `DOC_SOURCES` list in `ai.py`
+**Routing Logic:**
+- **Technical Issues**: Routed to engineering teams
+- **Account Problems**: Directed to customer success
+- **Billing Queries**: Sent to finance department
+- **Product Questions**: Forwarded to product specialists
 
 ## 🏗️ Architecture
 
-### Frontend Structure
+### Frontend (React + TypeScript)
 ```
 frontend/src/
 ├── components/
-│   ├── ui/              # shadcn/ui base components
-│   ├── Dashboard.tsx    # Main dashboard view
-│   ├── AgentPanel.tsx   # AI agent interface
-│   ├── TicketTable.tsx  # Ticket display component
-│   ├── Charts.tsx       # Data visualization
+│   ├── ui/              # Reusable UI components
+│   ├── Dashboard.tsx    # Main dashboard interface
+│   ├── AgentPanel.tsx   # AI agent interaction panel
+│   ├── TicketTable.tsx  # Ticket display and filtering
+│   ├── Charts.tsx       # Data visualization components
 │   └── ...
 ├── lib/
 │   ├── api.ts          # API client with React Query
 │   └── utils.ts        # Utility functions
 ├── store/
-│   └── ui.ts           # Zustand state management
+│   └── ui.ts           # State management with Zustand
 └── App.tsx             # Main application component
 ```
 
-### Backend Structure
+### Backend (Flask + Python)
 ```
 backend/
 ├── core/
 │   └── ai.py           # AI classification and RAG logic
 ├── routes/
-│   ├── tickets.py      # Ticket-related endpoints
-│   └── agent.py        # AI agent endpoints
+│   ├── tickets.py      # Ticket management endpoints
+│   └── agent.py        # AI agent processing endpoints
+├── knowledge_base/     # RAG knowledge base files
 ├── app.py              # Flask application entry point
 └── requirements.txt    # Python dependencies
 ```
 
-## 🔌 API Endpoints
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env` file in the backend directory:
+
+```bash
+# Server Configuration
+FLASK_PORT=5001
+CORS_ORIGIN=http://localhost:5173
+
+# AI Features
+USE_ONLINE_RAG=false
+GEMINI_API_KEY=your_api_key_here  # Optional: For enhanced AI features
+
+# Knowledge Base
+KB_UPDATE_INTERVAL=3600  # Update interval in seconds
+```
+
+### Customization Options
+
+#### Adding New Topics
+Update the topic classification in `backend/core/ai.py`:
+```python
+TOPIC_KEYWORDS = {
+    "Connector": ["connection", "integrate", "sync"],
+    "Custom Topic": ["custom", "keywords", "here"],
+    # Add your topics here
+}
+```
+
+#### Modifying Response Templates
+Customize AI response templates in the same file:
+```python
+RESPONSE_TEMPLATES = {
+    "rag": "Based on our documentation: {response}\n\nSources: {citations}",
+    "routing": "I've forwarded your query to our {team} team...",
+    # Add custom templates
+}
+```
+
+## 📊 API Reference
 
 ### GET /api/tickets
-Returns all tickets with classifications
+Retrieve all tickets with classifications
 ```json
-[
-  {
-    "id": "TICKET-245",
-    "channel": "email",
-    "createdAt": "2024-01-15T09:30:00Z",
-    "text": "Ticket description...",
-    "classification": {
-      "topics": ["Connector"],
-      "sentiment": "Frustrated",
-      "priority": "P1"
+{
+  "tickets": [
+    {
+      "id": "TICKET-001",
+      "channel": "email",
+      "createdAt": "2024-01-15T09:30:00Z",
+      "text": "How do I connect Snowflake to Atlan?",
+      "classification": {
+        "topic": "Connector",
+        "sentiment": "Curious",
+        "priority": "P2"
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 ### POST /api/classify
-Classifies a single ticket
+Classify a single ticket
 ```json
 {
-  "text": "How do I connect Snowflake?"
+  "text": "I'm having trouble with my Tableau connection",
+  "channel": "email"
 }
 ```
 
 ### POST /api/agent/respond
-Full AI agent pipeline
+Full AI agent processing pipeline
 ```json
 {
-  "text": "How do I connect Snowflake?",
-  "channel": "email"
+  "text": "How do I set up SSO with Okta?",
+  "channel": "live_chat"
 }
 ```
 
@@ -190,75 +229,73 @@ Response:
 ```json
 {
   "analysis": {
-    "topics": ["Connector"],
+    "topic": "SSO",
     "sentiment": "Curious",
-    "priority": "P2"
+    "priority": "P1"
   },
-  "final": {
-    "type": "rag",
-    "message": "To connect Snowflake...",
-    "citations": ["https://docs.atlan.com/connectors"]
-  }
+  "response": "To set up SSO with Okta...",
+  "sources": ["https://docs.example.com/sso-setup"],
+  "type": "rag"
 }
 ```
 
-## 🎨 Customization
+## 🧪 Sample Data
 
-### Themes
-The application supports light/dark themes with CSS variables. Customize colors in `frontend/src/index.css`.
+The system comes with 16 pre-loaded sample tickets covering various scenarios:
 
-### Animation Settings
-Modify animation preferences in individual components or globally disable with the `prefers-reduced-motion` media query.
+- **Connector Issues**: Snowflake, Tableau, PostgreSQL connection problems
+- **Data Lineage**: Lineage tracking and visualization queries
+- **API/SDK**: Integration and development questions
+- **SSO Configuration**: Single sign-on setup and troubleshooting
+- **Data Governance**: Policy and compliance inquiries
+- **Performance**: System performance and optimization
+- **Billing**: Account and subscription questions
 
-### Classification Logic
-Update classification rules in `backend/core/ai.py`:
-- `TOPIC_KEYWORDS`: Add new topics or keywords
-- `SENTIMENT_KEYWORDS`: Modify sentiment detection
-- `PRIORITY_KEYWORDS`: Adjust priority assignment
+## 🛠️ Development
 
-## 🧪 Testing
-
-### Frontend
+### Running Tests
 ```bash
+# Frontend tests
 cd frontend
-npm run lint    # ESLint checking
-npm run build   # Production build test
-```
+npm run test
 
-### Backend
-```bash
+# Backend tests
 cd backend
-python -m pytest tests/  # Run unit tests (if implemented)
+python -m pytest tests/
 ```
 
-## 🚀 Building for Production
-
-### Frontend
+### Building for Production
 ```bash
+# Build frontend
 cd frontend
 npm run build
+
 # The built files will be in the 'dist' folder
 ```
 
-### Backend
+### Code Quality
 ```bash
+# Frontend linting
+cd frontend
+npm run lint
+
+# Python code formatting
 cd backend
-# For production, use gunicorn
-pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:5001 app:app
+black . && flake8 .
 ```
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+3. Make your changes and add tests
+4. Commit your changes (`git commit -m 'Add amazing feature'`)
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
@@ -266,10 +303,17 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Framer Motion** for smooth animations
 - **React Query** for excellent data fetching
 - **Recharts** for data visualization
+- **Flask** for the robust backend framework
 
 ## 📞 Support
 
-For questions or issues:
-1. Check the existing GitHub issues
+For questions, issues, or contributions:
+
+1. Check existing [GitHub Issues](https://github.com/your-username/ai-helpdesk-system/issues)
 2. Create a new issue with detailed description
 3. Include steps to reproduce any bugs
+4. Provide system information and error logs
+
+---
+
+**Built with ❤️ for modern customer support teams**
