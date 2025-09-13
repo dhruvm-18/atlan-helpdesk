@@ -1,0 +1,39 @@
+{
+  "name": "Atlan AI Helpdesk",
+  "description": "AI-powered helpdesk system with React frontend and Flask backend",
+  "repository": "https://github.com/dhruvm-18/atlan-helpdesk",
+  "logo": "https://via.placeholder.com/120x120/1a1a1a/ffffff?text=AI",
+  "keywords": ["ai", "helpdesk", "react", "flask", "atlan", "machine-learning"],
+  "image": "heroku/python",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": {
+      "description": "Flask environment",
+      "value": "production"
+    },
+    "CORS_ORIGIN": {
+      "description": "CORS origin for frontend",
+      "value": "*"
+    },
+    "USE_ONLINE_RAG": {
+      "description": "Enable online RAG system",
+      "value": "false"
+    }
+  },
+  "scripts": {
+    "postdeploy": "cd backend && python init_kb.py"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}

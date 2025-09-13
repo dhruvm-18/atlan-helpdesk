@@ -1,6 +1,27 @@
-# Atlan Helpdesk - AI-Powered Support Demo
+# 🤖 Atlan Helpdesk - AI-Powered Support Demo
 
-A production-ready demonstration of an AI-powered helpdesk system built with React.js frontend and Flask backend. Features intelligent ticket classification, RAG-based responses, and beautiful animations.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://your-deployed-url.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/dhruvm-18/atlan-helpdesk)
+
+A production-ready demonstration of an AI-powered helpdesk system built with **React.js frontend** and **Flask backend**. Features intelligent ticket classification, RAG-based responses, and beautiful animations.
+
+![Atlan Helpdesk Demo](https://via.placeholder.com/800x400/1a1a1a/ffffff?text=AI+Helpdesk+Demo)
+
+## 🌟 Live Demo
+
+**🚀 [View Live Application](https://your-deployed-url.com)**
+
+Try the demo with sample tickets or create your own support requests to see the AI in action!
+
+## 🚀 Quick Deploy
+
+Deploy your own instance in seconds:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/dhruvm-18/atlan-helpdesk)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/github/dhruvm-18/atlan-helpdesk)
+[![Run on Repl.it](https://replit.com/badge/github/dhruvm-18/atlan-helpdesk)](https://replit.com/new/github/dhruvm-18/atlan-helpdesk)
+
+> **📖 [Detailed Deployment Guide](DEPLOY_FROM_GITHUB.md)** - Step-by-step instructions for all platforms
 
 ## 🚀 Features
 
