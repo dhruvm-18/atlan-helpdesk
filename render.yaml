@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: atlan-helpdesk-backend
+    env: python
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && gunicorn --bind 0.0.0.0:$PORT app:app
+    envVars:
+      - key: FLASK_PORT
+        value: $PORT
+      - key: CORS_ORIGIN
+        value: https://atlan-helpdesk-frontend.onrender.com
+  
+  - type: web
+    name: atlan-helpdesk-frontend
+    env: node
+    buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://atlan-helpdesk-backend.onrender.com

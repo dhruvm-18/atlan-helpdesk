@@ -1,0 +1,114 @@
+[
+  {
+    "id": "TICKET-245",
+    "channel": "email",
+    "createdAt": "2024-01-15T09:30:00Z",
+    "subject": "Connecting Snowflake to Atlan - required permissions?",
+    "body": "Hi team, we're trying to set up our primary Snowflake production database as a new source in Atlan, but the connection keeps failing. We've tried using our standard service account, but it's not working. Our entire BI team is blocked on this integration for a major upcoming project, so it's quite urgent. Could you please provide a definitive list of the exact permissions and credentials needed on the Snowflake side to get this working? Thanks."
+  },
+  {
+    "id": "TICKET-246",
+    "channel": "live_chat",
+    "createdAt": "2024-01-15T10:45:00Z",
+    "subject": "Which connectors automatically capture lineage?",
+    "body": "Hello, I'm new to Atlan and trying to understand the lineage capabilities. The documentation mentions automatic lineage, but it's not clear which of our connectors (we use Fivetran, dbt, and Tableau) support this out-of-the-box. We need to present a clear picture of our data flow to leadership next week. Can you explain how lineage capture differs for these tools?"
+  },
+  {
+    "id": "TICKET-247",
+    "channel": "email",
+    "createdAt": "2024-01-15T11:20:00Z",
+    "subject": "Deployment of Atlan agent for private data lake",
+    "body": "Our primary data lake is hosted on-premise within a secure VPC and is not exposed to the internet. We understand we need to use the Atlan agent for this, but the setup instructions are a bit confusing for our security team. This is a critical source for us, and we can't proceed with our rollout until we get this connected. Can you provide a detailed deployment guide or connect us with a technical expert?"
+  },
+  {
+    "id": "TICKET-248",
+    "channel": "whatsapp",
+    "createdAt": "2024-01-15T14:15:00Z",
+    "subject": "How to surface sample rows and schema changes?",
+    "body": "Hi, we've successfully connected our Redshift cluster, and the assets are showing up. However, my data analysts are asking how they can see sample data or recent schema changes directly within Atlan without having to go back to Redshift. Is this feature available? I feel like I'm missing something obvious."
+  },
+  {
+    "id": "TICKET-249",
+    "channel": "email",
+    "createdAt": "2024-01-15T15:30:00Z",
+    "subject": "Exporting lineage view for a specific table",
+    "body": "For our quarterly audit, I need to provide a complete upstream and downstream lineage diagram for our core `fact_orders` table. I can see the lineage perfectly in the UI, but I can't find an option to export this view as an image or PDF. This is a hard requirement from our compliance team and the deadline is approaching fast. Please help!"
+  },
+  {
+    "id": "TICKET-250",
+    "channel": "voice",
+    "createdAt": "2024-01-16T08:00:00Z",
+    "subject": "Importing lineage from Airflow jobs",
+    "body": "We run hundreds of ETL jobs in Airflow, and we need to see that lineage reflected in Atlan. I've read that Atlan can integrate with Airflow, but how do we configure it to correctly map our DAGs to the specific datasets they are transforming? The current documentation is a bit high-level."
+  },
+  {
+    "id": "TICKET-251",
+    "channel": "live_chat",
+    "createdAt": "2024-01-16T09:45:00Z",
+    "subject": "Using the Visual Query Builder",
+    "body": "I'm a business analyst and not very comfortable with writing complex SQL. I was excited to see the Visual Query Builder in Atlan, but I'm having trouble figuring out how to join multiple tables and save my query for later use. Is there a tutorial or a quick guide you can point me to?"
+  },
+  {
+    "id": "TICKET-252",
+    "channel": "email",
+    "createdAt": "2024-01-16T11:30:00Z",
+    "subject": "Programmatic extraction of lineage",
+    "body": "Our internal data science team wants to build a custom application that analyzes metadata propagation delays. To do this, we need to programmatically extract lineage data from Atlan via an API. Does the API expose lineage information, and if so, could you provide an example of the endpoint and the structure of the response?"
+  },
+  {
+    "id": "TICKET-253",
+    "channel": "email",
+    "createdAt": "2024-01-16T13:15:00Z",
+    "subject": "Upstream lineage to Snowflake view not working",
+    "body": "This is infuriating. We have a critical Snowflake view, `finance.daily_revenue`, that is built from three upstream tables. Atlan is correctly showing the downstream dependencies, but the upstream lineage is completely missing. This makes the view untrustworthy for our analysts. We've re-run the crawler multiple times. What could be causing this? This is a huge problem for us."
+  },
+  {
+    "id": "TICKET-254",
+    "channel": "whatsapp",
+    "createdAt": "2024-01-16T16:20:00Z",
+    "subject": "How to create a business glossary and link terms in bulk?",
+    "body": "We are migrating our existing business glossary from a spreadsheet into Atlan. We have over 500 terms. Manually creating each one and linking them to thousands of assets seems impossible. Is there a bulk import feature using CSV or an API to create terms and link them to assets? This is blocking our entire governance initiative."
+  },
+  {
+    "id": "TICKET-255",
+    "channel": "email",
+    "createdAt": "2024-01-17T10:00:00Z",
+    "subject": "SSO integration with Okta not working",
+    "body": "We're trying to set up SSO with our Okta instance but users are getting authentication errors. The SAML configuration seems correct but something is not working. Our security team needs this resolved ASAP as we can't have users with individual passwords."
+  },
+  {
+    "id": "TICKET-256",
+    "channel": "live_chat",
+    "createdAt": "2024-01-17T11:30:00Z",
+    "subject": "Best practices for data governance setup",
+    "body": "We're just getting started with Atlan and want to make sure we set up our data governance framework correctly from the beginning. What are the recommended best practices for organizing our data catalog, setting up access controls, and implementing data quality checks?"
+  },
+  {
+    "id": "TICKET-257",
+    "channel": "voice",
+    "createdAt": "2024-01-17T14:45:00Z",
+    "subject": "API rate limits and authentication",
+    "body": "I'm building an integration with the Atlan API but I'm hitting rate limits and getting authentication errors. Could you provide details on the rate limiting policy and the proper way to authenticate API requests? I need to sync metadata for thousands of assets."
+  },
+  {
+    "id": "TICKET-258",
+    "channel": "email",
+    "createdAt": "2024-01-17T16:00:00Z",
+    "subject": "Sensitive data classification not working",
+    "body": "We've enabled sensitive data scanning but it's not detecting PII in our customer tables. We have columns with names, emails, and phone numbers that should be flagged. Is there something wrong with our configuration? This is critical for our GDPR compliance."
+  },
+  {
+    "id": "TICKET-259",
+    "channel": "whatsapp",
+    "createdAt": "2024-01-18T09:15:00Z",
+    "subject": "Product roadmap and upcoming features",
+    "body": "Hi, I'm curious about what new features are coming to Atlan in the next few months. Specifically, are there any improvements planned for the data quality monitoring capabilities? Our team is very interested in automated data profiling."
+  },
+  {
+    "id": "TICKET-260",
+    "channel": "live_chat",
+    "createdAt": "2024-01-18T12:30:00Z",
+    "subject": "Tableau connector lineage issues",
+    "body": "The Tableau connector is working but the lineage information seems incomplete. Some of our dashboards show connections to data sources but others don't. Is this a known issue with certain types of Tableau workbooks or data connections?"
+  }
+]

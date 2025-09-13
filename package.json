@@ -1,0 +1,17 @@
+{
+  "name": "atlan-helpdesk-demo",
+  "version": "1.0.0",
+  "description": "AI-powered helpdesk demo with React frontend and Flask backend",
+  "scripts": {
+    "install-all": "cd backend && pip install -r requirements.txt && cd ../frontend && npm install",
+    "dev": "concurrently \"cd backend && python app.py\" \"cd frontend && npm run dev\"",
+    "build": "cd frontend && npm run build",
+    "test-api": "python test_api.py"
+  },
+  "keywords": ["ai", "helpdesk", "react", "flask", "atlan"],
+  "author": "Kiro AI Assistant",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
