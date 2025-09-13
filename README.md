@@ -5,7 +5,6 @@ Purpose-built for **data platform support teams** handling complex technical que
 
 ![Dashboard Overview](Dashboard.jpg)
 
-![System Architecture Overview](Architecture.png)
 
 ---
 
