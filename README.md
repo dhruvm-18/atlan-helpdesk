@@ -98,9 +98,6 @@ We implemented a production-style **AI Helpdesk System** centered on the pipelin
 
 Our AI-powered helpdesk system consists of several interconnected components working together to provide intelligent customer support automation:
 
-### Architecture Components
-
-![System Architecture Overview](Architecture.png)
 
 ### AI Classification Pipeline
 
@@ -114,68 +111,6 @@ Our AI-powered helpdesk system consists of several interconnected components wor
 
 ![Data Processing Pipeline](Datapipeline.png)
 
----
-
-## 🧩 High-Level Architecture
-
-```mermaid
-flowchart LR
-  U[User (Email / Chat / Voice / WhatsApp)] -->|New Ticket| FE[React + TypeScript UI]
-
-  subgraph Frontend
-    FE --> FQ[React Query\n(Data fetching & cache)]
-    FE --> Dash[Dashboard & Charts]
-    FE --> Agent[Agent Panel]
-  end
-
-  FQ -->|REST| BE[(Flask API)]
-
-  subgraph Backend
-    BE --> CLF[Classification Engine\n(Topic + Sentiment + Priority)]
-    BE --> RAG[RAG Pipeline]
-    RAG --> EMB[Sentence Transformers\n(Embeddings)]
-    RAG --> IDX[(FAISS Index)]
-    RAG --> KB[Docs Loader / Updater]
-  end
-
-  KB -->|Docs| DOCS[(docs.atlan.com)]
-  KB -->|Dev Hub| DEV[(developer.atlan.com)]
-
-  CLF --> ROUTE[Routing Logic]
-  RAG --> RESP[Drafted Response + Citations]
-  ROUTE --> RESP
-  RESP --> FE
-  Dash --> FE
-
-
-### Sequence: New Ticket → Response/Routing
-
-```mermaid
-sequenceDiagram
-  participant U as User
-  participant FE as Frontend (Agent Panel)
-  participant BE as Backend (Flask)
-  participant CLF as Classification
-  participant RAG as RAG Pipeline
-  participant KB as FAISS + Docs
-
-  U->>FE: Submit ticket text + channel
-  FE->>BE: POST /api/agent/respond
-  BE->>CLF: classify(text, channel)
-  CLF-->>BE: topic + sentiment + priority + confidence
-  alt Topic ∈ {How-to, Product, Best Practices, API/SDK, SSO}
-    BE->>RAG: retrieve+generate(text, topic)
-    RAG->>KB: embed+search (Top-K)
-    KB-->>RAG: matching chunks + metadata
-    RAG-->>BE: answer + citations + score
-    BE-->>FE: Internal analysis + Final RAG response (with sources)
-  else Non-RAG topics
-    BE-->>FE: Internal analysis + "classified & routed" message
-  end
-  FE-->>U: Show analysis, final response, and/or routing
-```
-
----
 
 ## 🧪 Design Decisions & Trade-offs
 
