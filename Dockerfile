@@ -7,14 +7,17 @@ WORKDIR /app/frontend
 # Copy frontend package files
 COPY frontend/package*.json ./
 
-# Install frontend dependencies
-RUN npm ci --only=production
+# Install all dependencies (including devDependencies for build)
+RUN npm ci
 
 # Copy frontend source code
 COPY frontend/ ./
 
 # Build frontend for production
 RUN npm run build
+
+# Clean up node_modules to reduce image size
+RUN rm -rf node_modules
 
 # Stage 2: Setup Python backend
 FROM python:3.11-slim AS backend
@@ -25,6 +28,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy backend requirements and install Python dependencies
@@ -42,7 +46,7 @@ COPY sample_tickets.json ./
 COPY knowledge_base/ ./knowledge_base/
 
 # Create necessary directories
-RUN mkdir -p backend/data backend/knowledge_base
+RUN mkdir -p backend/data
 
 # Set environment variables
 ENV FLASK_ENV=production
