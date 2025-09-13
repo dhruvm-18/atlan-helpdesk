@@ -1,20 +1,20 @@
 # Multi-stage Dockerfile for AI Helpdesk Demo
 # Stage 1: Build frontend
-FROM node:18 AS frontend-builder
+FROM node:20-bullseye AS frontend-builder
 
 WORKDIR /app/frontend
 
 # Copy frontend package files
 COPY frontend/package*.json ./
 
-# Install all dependencies
-RUN npm ci
+# Install dependencies
+RUN npm install
 
 # Copy frontend source code
 COPY frontend/ ./
 
-# Build frontend for production
-RUN npx vite build
+# Build frontend using custom script
+RUN node build-docker.js
 
 # Clean up node_modules to reduce image size
 RUN rm -rf node_modules
