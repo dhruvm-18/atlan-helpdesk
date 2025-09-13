@@ -1,27 +1,6 @@
-# 🤖 Atlan Helpdesk - AI-Powered Support Demo
+# 🤖 AI-Powered Helpdesk Demo
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://your-deployed-url.com)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/dhruvm-18/atlan-helpdesk)
-
-A production-ready demonstration of an AI-powered helpdesk system built with **React.js frontend** and **Flask backend**. Features intelligent ticket classification, RAG-based responses, and beautiful animations.
-
-![Atlan Helpdesk Demo](https://via.placeholder.com/800x400/1a1a1a/ffffff?text=AI+Helpdesk+Demo)
-
-## 🌟 Live Demo
-
-**🚀 [View Live Application](https://your-deployed-url.com)**
-
-Try the demo with sample tickets or create your own support requests to see the AI in action!
-
-## 🚀 Quick Deploy
-
-Deploy your own instance in seconds:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/dhruvm-18/atlan-helpdesk)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/github/dhruvm-18/atlan-helpdesk)
-[![Run on Repl.it](https://replit.com/badge/github/dhruvm-18/atlan-helpdesk)](https://replit.com/new/github/dhruvm-18/atlan-helpdesk)
-
-> **📖 [Detailed Deployment Guide](DEPLOY_FROM_GITHUB.md)** - Step-by-step instructions for all platforms
+A demonstration of an AI-powered helpdesk system built with **React.js frontend** and **Flask backend**. Features intelligent ticket classification, RAG-based responses, and modern UI components.
 
 ## 🚀 Features
 
@@ -58,8 +37,8 @@ Deploy your own instance in seconds:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd atlan-helpdesk
+git clone https://github.com/your-username/ai-helpdesk-demo.git
+cd ai-helpdesk-demo
 ```
 
 ### 2. Backend Setup
@@ -91,7 +70,7 @@ npm run dev
 
 The frontend will start on `http://localhost:5173`
 
-**Alternative for Windows**: Simply double-click `start-backend.bat` and `start-frontend.bat`
+
 
 ### 4. Open Your Browser
 Navigate to `http://localhost:5173` to see the application in action!
@@ -252,19 +231,19 @@ cd backend
 python -m pytest tests/  # Run unit tests (if implemented)
 ```
 
-## 🚀 Production Deployment
+## 🚀 Building for Production
 
 ### Frontend
 ```bash
 cd frontend
 npm run build
-# Deploy the 'dist' folder to your static hosting service
+# The built files will be in the 'dist' folder
 ```
 
 ### Backend
 ```bash
 cd backend
-# Use gunicorn for production
+# For production, use gunicorn
 pip install gunicorn
 gunicorn -w 4 -b 0.0.0.0:5001 app:app
 ```
@@ -283,7 +262,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🙏 Acknowledgments
 
-- **Atlan** for the inspiration and use case
 - **shadcn/ui** for the beautiful component library
 - **Framer Motion** for smooth animations
 - **React Query** for excellent data fetching
@@ -295,7 +273,3 @@ For questions or issues:
 1. Check the existing GitHub issues
 2. Create a new issue with detailed description
 3. Include steps to reproduce any bugs
-
----
-
-**Built with ❤️ for the Atlan community**
