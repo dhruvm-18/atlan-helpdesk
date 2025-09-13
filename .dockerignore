@@ -1,0 +1,52 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+*.txt
+!requirements.txt
+
+# Development files
+.vscode/
+.vercel/
+
+# Node modules (will be installed in container)
+frontend/node_modules/
+node_modules/
+
+# Python cache and virtual environments
+backend/__pycache__/
+backend/venv/
+backend/.env
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Build artifacts
+frontend/dist/
+frontend/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Development scripts
+*.bat
+*.sh
+!build.sh
+!deploy.sh
+
+# Logs
+*.log
+logs/
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/

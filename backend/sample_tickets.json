@@ -1,5 +1,29 @@
 [
   {
+    "id": "TICKET-262",
+    "channel": "email",
+    "createdAt": "2025-09-13T10:11:00.034547Z",
+    "subject": "Agent Query: How-to - P1 (Medium)",
+    "body": "How to surface sample rows and schema changes? - Hi, we've successfully connected our Redshift cluster, and the assets are showing up. However, my data analysts are asking how they can see sample data or recent schema changes directly within Atlan without having to go back to Redshift. Is this feature available? I feel like I'm missing something obvious.\n\n",
+    "classification": {
+      "topic": "How-to",
+      "sentiment": "Curious",
+      "priority": "P1 (Medium)"
+    }
+  },
+  {
+    "id": "TICKET-261",
+    "channel": "live_chat",
+    "createdAt": "2025-09-13T10:08:24.831459Z",
+    "subject": "Agent Query: Product - P2 (Low)",
+    "body": "hi",
+    "classification": {
+      "topic": "Product",
+      "sentiment": "Neutral",
+      "priority": "P2 (Low)"
+    }
+  },
+  {
     "id": "TICKET-245",
     "channel": "email",
     "createdAt": "2024-01-15T09:30:00Z",

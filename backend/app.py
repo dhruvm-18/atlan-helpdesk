@@ -3,7 +3,7 @@ Flask application for AI Helpdesk with FAISS Knowledge Base.
 """
 import os
 import threading
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory, send_file
 from flask_cors import CORS
 from dotenv import load_dotenv
 from routes.tickets import tickets_bp
@@ -27,7 +27,9 @@ def initialize_knowledge_base_async():
 
 def create_app():
     """Create and configure Flask application."""
-    app = Flask(__name__)
+    # Set static folder for production builds
+    static_folder = 'static' if os.path.exists('static') else None
+    app = Flask(__name__, static_folder=static_folder)
     
     # Configure CORS
     cors_origin = os.getenv('CORS_ORIGIN', 'http://localhost:5173')
@@ -67,9 +69,25 @@ def create_app():
                 'message': f'Knowledge base error: {str(e)}'
             })
     
-    @app.errorhandler(404)
-    def not_found(error):
-        return jsonify({'error': 'Endpoint not found'}), 404
+    # Serve frontend static files in production
+    @app.route('/')
+    def serve_frontend():
+        """Serve the frontend index.html"""
+        if app.static_folder and os.path.exists(os.path.join(app.static_folder, 'index.html')):
+            return send_file(os.path.join(app.static_folder, 'index.html'))
+        return jsonify({'message': 'AI Helpdesk API - Frontend not built'})
+    
+    @app.route('/<path:path>')
+    def serve_static_files(path):
+        """Serve static files or fallback to index.html for SPA routing"""
+        if app.static_folder:
+            file_path = os.path.join(app.static_folder, path)
+            if os.path.exists(file_path):
+                return send_from_directory(app.static_folder, path)
+            # Fallback to index.html for SPA routing
+            if os.path.exists(os.path.join(app.static_folder, 'index.html')):
+                return send_file(os.path.join(app.static_folder, 'index.html'))
+        return jsonify({'error': 'File not found'}), 404
     
     @app.errorhandler(500)
     def internal_error(error):
