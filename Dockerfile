@@ -14,7 +14,7 @@ RUN npm ci
 COPY frontend/ ./
 
 # Build frontend for production
-RUN npm run build
+RUN npx vite build
 
 # Clean up node_modules to reduce image size
 RUN rm -rf node_modules
