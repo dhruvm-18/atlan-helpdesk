@@ -1,13 +1,13 @@
 # Multi-stage Dockerfile for AI Helpdesk Demo
 # Stage 1: Build frontend
-FROM node:18-alpine AS frontend-builder
+FROM node:18 AS frontend-builder
 
 WORKDIR /app/frontend
 
 # Copy frontend package files
 COPY frontend/package*.json ./
 
-# Install all dependencies (including devDependencies for build)
+# Install all dependencies
 RUN npm ci
 
 # Copy frontend source code
