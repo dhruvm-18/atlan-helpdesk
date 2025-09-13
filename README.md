@@ -6,11 +6,13 @@ Purpose-built for **data platform support teams** handling complex technical que
 
 ![Dashboard Overview](Dashboard.jpg)
 
+![System Architecture Overview](Architecture.png)
+
 ---
 
 ## 🧭 Context
 
-At **Atlan**, our customer support team is the backbone of customer relationships, handling a spectrum of tickets—from quick *how-to* questions to deep *technical bug reports*. As volume grows, manual triage, prioritization, and response drafting don’t scale.
+At **Atlan**, our customer support team is the backbone of customer relationships, handling a spectrum of tickets—from quick _how-to_ questions to deep _technical bug reports_. As volume grows, manual triage, prioritization, and response drafting don’t scale.
 
 **Enter the AI Copilot**: an assistant that automates triage, surfaces the right knowledge with citations, drafts great responses, and routes the rest to the right humans—fast.
 
@@ -23,6 +25,7 @@ At **Atlan**, our customer support team is the backbone of customer relationship
 ### Required Capabilities
 
 1. **Bulk Ticket Classification Dashboard**
+
    - Ingest tickets from a `sample_tickets` file on load
    - Display for each ticket:
      - **Topic Tags**: How-to, Product, Connector, Lineage, API/SDK, SSO, Glossary, Best Practices, Sensitive Data
@@ -30,6 +33,7 @@ At **Atlan**, our customer support team is the backbone of customer relationship
      - **Priority**: P0 (High), P1 (Medium), P2 (Low)
 
 2. **Interactive AI Agent**
+
    - Text input for a new ticket (channels: WhatsApp, email, voice, live chat)
    - **Internal Analysis View**: Topic, Sentiment, Priority
    - **Final Response View**:
@@ -51,28 +55,39 @@ At **Atlan**, our customer support team is the backbone of customer relationship
 We implemented a production-style **AI Helpdesk System** centered on the pipeline and wrapped it in a clean, responsive UI to demonstrate end-to-end flows.
 
 ### 1) 🧠 AI Classification Engine
+
 - **Topic Detection** across 9 categories using **keyword-seeded, ML-assisted rules**
 - **Sentiment Analysis**: Frustrated / Curious / Angry / Neutral
 - **Priority Assignment**: P0 / P1 / P2 using urgency & blocker heuristics
 - **Multi-Channel Ingestion**: Email, WhatsApp, Voice, Live Chat
 
+![AI Classification Pipeline](Classification%20Pipeline.png)
+
 ### 2) 🔍 RAG Knowledge Base
+
 - **Sentence Transformers + FAISS** for vector search
 - **Document Chunking** (size=500, overlap=50) for recall
 - **Citations always included** in RAG answers
 - **Dynamic Updates**: background indexing
 - **Fallback** when confidence is low (safe, honest handoff)
 
+![Knowledge Base Architecture](Knowledgebase.png)
+
 ### 3) 📊 Bulk Ticket Dashboard
+
 - Loads `sample_tickets` on app start
 - Interactive filters: topic, sentiment, priority, channel
 - Visual charts (distribution & trends) and **export**
 
+![Data Processing Pipeline](Datapipeline.png)
+
 ### 4) 🧭 Specialist Team Routing
+
 - Non-RAG topics (e.g., Connector, Lineage, Sensitive Data) are **classified & routed**
 - Clear routing copy and labels for downstream queues
 
 ### 5) 🎨 Modern UX
+
 - **React + TypeScript + Vite** with Tailwind and **shadcn/ui**
 - **Dark/Light** themes, **WCAG** accessibility, **Framer Motion** micro-interactions
 - **React Query** for live, resilient data flows
@@ -111,6 +126,7 @@ flowchart LR
   ROUTE --> RESP
   RESP --> FE
   Dash --> FE
+```
 ````
 
 ### Sequence: New Ticket → Response/Routing
@@ -157,11 +173,11 @@ sequenceDiagram
 
 ## 🎯 Project Overview (What’s Included)
 
-* Intelligent ticket classification (topic/sentiment/priority)
-* FAISS-powered RAG (citations, dynamic updates)
-* Multi-modal support (email, chat, voice, WhatsApp)
-* Real-time analytics dashboard
-* Modern React frontend (TypeScript, responsive)
+- Intelligent ticket classification (topic/sentiment/priority)
+- FAISS-powered RAG (citations, dynamic updates)
+- Multi-modal support (email, chat, voice, WhatsApp)
+- Real-time analytics dashboard
+- Modern React frontend (TypeScript, responsive)
 
 ---
 
@@ -171,15 +187,15 @@ sequenceDiagram
 
 **Topic Detection (9 categories):**
 
-* How-to guides & tutorials
-* Product functionality questions
-* Connector integration issues
-* Data lineage inquiries
-* API/SDK development support
-* SSO & authentication
-* Glossary & metadata management
-* Best practices & optimization
-* Sensitive data & compliance
+- How-to guides & tutorials
+- Product functionality questions
+- Connector integration issues
+- Data lineage inquiries
+- API/SDK development support
+- SSO & authentication
+- Glossary & metadata management
+- Best practices & optimization
+- Sensitive data & compliance
 
 **Sentiment:** Frustrated, Curious, Angry, Neutral
 **Priority:** P0 / P1 / P2
@@ -187,26 +203,26 @@ sequenceDiagram
 
 ### 🔍 RAG Knowledge Base
 
-* FAISS Vector Search with Sentence Transformers
-* Chunking (size=500, overlap=50) for semantic cohesion
-* Citations: Always present
-* Dynamic Updates: Scheduled re-index
-* Fallback: Graceful escalation
+- FAISS Vector Search with Sentence Transformers
+- Chunking (size=500, overlap=50) for semantic cohesion
+- Citations: Always present
+- Dynamic Updates: Scheduled re-index
+- Fallback: Graceful escalation
 
 ### 📊 Analytics Dashboard
 
-* Ticket distribution, trends, and SLAs
-* Topic/sentiment/priority breakdowns
-* Multi-dimensional filters
-* Export for reporting
+- Ticket distribution, trends, and SLAs
+- Topic/sentiment/priority breakdowns
+- Multi-dimensional filters
+- Export for reporting
 
 ### 🎨 Modern User Experience
 
-* Responsive (desktop/tablet/mobile)
-* Dark/Light themes (system aware)
-* Framer Motion animations
-* WCAG compliance + keyboard navigation
-* Real-time sync with React Query
+- Responsive (desktop/tablet/mobile)
+- Dark/Light themes (system aware)
+- Framer Motion animations
+- WCAG compliance + keyboard navigation
+- Real-time sync with React Query
 
 ---
 
@@ -214,10 +230,10 @@ sequenceDiagram
 
 ### Prerequisites
 
-* Node.js 18+ and npm/yarn
-* Python 3.11+ with pip
-* Git
-* 4GB+ RAM (FAISS)
+- Node.js 18+ and npm/yarn
+- Python 3.11+ with pip
+- Git
+- 4GB+ RAM (FAISS)
 
 ### 1) Clone & Install
 
@@ -251,10 +267,10 @@ npm run dev
 
 **Access Points**
 
-* **Frontend** → [http://localhost:5173](http://localhost:5173)
-* **Backend API** → [http://localhost:5001](http://localhost:5001)
-* **Health** → [http://localhost:5001/api/health](http://localhost:5001/api/health)
-* **KB Status** → [http://localhost:5001/api/kb/status](http://localhost:5001/api/kb/status)
+- **Frontend** → [http://localhost:5173](http://localhost:5173)
+- **Backend API** → [http://localhost:5001](http://localhost:5001)
+- **Health** → [http://localhost:5001/api/health](http://localhost:5001/api/health)
+- **KB Status** → [http://localhost:5001/api/kb/status](http://localhost:5001/api/kb/status)
 
 ### 5) Production Deployment
 
@@ -276,11 +292,11 @@ The main dashboard shows all tickets with powerful filtering and analytics.
 
 **You can:**
 
-* View classified tickets in an interactive table
-* Filter by topic, sentiment, priority, and channel
-* Search through ticket content
-* Analyze trends with visual charts
-* Export data for reporting
+- View classified tickets in an interactive table
+- Filter by topic, sentiment, priority, and channel
+- Search through ticket content
+- Analyze trends with visual charts
+- Export data for reporting
 
 ### AI Agent Interface
 
@@ -293,8 +309,9 @@ The agent panel processes new tickets and shows classification + response genera
 3. **Run AI**: Pipeline executes (classification → RAG or routing)
 4. **View Results**:
 
-   * **Internal Analysis** (Topic, Sentiment, Priority, Confidence)
-   * **Final Response** (RAG with citations) **or** **Routed** notice
+   - **Internal Analysis** (Topic, Sentiment, Priority, Confidence)
+   - **Final Response** (RAG with citations) **or** **Routed** notice
+
 5. **History**: Review previous runs
 
 ### Specialist Team Routing
@@ -305,10 +322,10 @@ For complex queries requiring human expertise, the system routes tickets appropr
 
 **Routing Logic**
 
-* **Engineering**: Technical/connector issues
-* **Customer Success**: Accounts
-* **Finance**: Billing
-* **Product**: Product functionality
+- **Engineering**: Technical/connector issues
+- **Customer Success**: Accounts
+- **Finance**: Billing
+- **Product**: Product functionality
 
 ---
 
@@ -316,14 +333,14 @@ For complex queries requiring human expertise, the system routes tickets appropr
 
 ### Technology Stack
 
-* **Frontend**: React 18 + TypeScript + Vite
-* **UI**: Tailwind CSS + shadcn/ui
-* **State**: Zustand + React Query
-* **Animations**: Framer Motion
-* **Backend**: Flask + Python 3.11
-* **AI/ML**: Sentence Transformers + FAISS + scikit-learn
-* **Database**: FAISS vector index + JSON storage
-* **Deployment**: Gunicorn + Railway/Vercel ready
+- **Frontend**: React 18 + TypeScript + Vite
+- **UI**: Tailwind CSS + shadcn/ui
+- **State**: Zustand + React Query
+- **Animations**: Framer Motion
+- **Backend**: Flask + Python 3.11
+- **AI/ML**: Sentence Transformers + FAISS + scikit-learn
+- **Database**: FAISS vector index + JSON storage
+- **Deployment**: Gunicorn + Railway/Vercel ready
 
 ### Frontend Structure
 
@@ -579,10 +596,10 @@ Content-Type: application/json
 
 ### Pre-loaded Sample Tickets (16)
 
-* **Connector Integration (5)**: Snowflake setup, Tableau lineage, Redshift config, On-prem Data Lake (VPC + Agent), Fivetran lineage
-* **Data Management (4)**: Lineage export (compliance), Airflow DAG mapping, Visual Query Builder, Schema evolution
-* **Authentication & Security (3)**: SSO, API auth, Data governance
-* **User Experience (4)**: Performance, Mobile access, Training resources, Feature requests
+- **Connector Integration (5)**: Snowflake setup, Tableau lineage, Redshift config, On-prem Data Lake (VPC + Agent), Fivetran lineage
+- **Data Management (4)**: Lineage export (compliance), Airflow DAG mapping, Visual Query Builder, Schema evolution
+- **Authentication & Security (3)**: SSO, API auth, Data governance
+- **User Experience (4)**: Performance, Mobile access, Training resources, Feature requests
 
 ### Manual Testing
 
@@ -707,10 +724,10 @@ CMD ["gunicorn","-w","4","-b","0.0.0.0:5001","backend.app:app"]
 
 ## 🔒 Security, Privacy & Safety
 
-* Optional PII redaction before indexing
-* Allowlist RAG sources (docs.atlan.com, developer.atlan.com)
-* Deterministic routing copy for non-RAG topics
-* Configurable confidence thresholds for safe answers
+- Optional PII redaction before indexing
+- Allowlist RAG sources (docs.atlan.com, developer.atlan.com)
+- Deterministic routing copy for non-RAG topics
+- Configurable confidence thresholds for safe answers
 
 ---
 
@@ -728,11 +745,11 @@ CMD ["gunicorn","-w","4","-b","0.0.0.0:5001","backend.app:app"]
 
 ## 🗺️ Roadmap
 
-* Re-ranker + multi-hop RAG
-* Distilled LLM classifier (fallback/ensemble)
-* Human-in-the-loop approval queue
-* Confidence-aware UI (traffic-light)
-* Multi-tenant KB & scoped auth
+- Re-ranker + multi-hop RAG
+- Distilled LLM classifier (fallback/ensemble)
+- Human-in-the-loop approval queue
+- Confidence-aware UI (traffic-light)
+- Multi-tenant KB & scoped auth
 
 ---
 
@@ -748,10 +765,10 @@ CMD ["gunicorn","-w","4","-b","0.0.0.0:5001","backend.app:app"]
 
 **Guidelines**
 
-* Follow linting/formatting rules
-* Write tests for new logic
-* Update docs where relevant
-* Consider performance & KB cost
+- Follow linting/formatting rules
+- Write tests for new logic
+- Update docs where relevant
+- Consider performance & KB cost
 
 ---
 
@@ -759,27 +776,28 @@ CMD ["gunicorn","-w","4","-b","0.0.0.0:5001","backend.app:app"]
 
 **MIT License** — see [LICENSE](LICENSE).
 
-* React (MIT), Flask (BSD-3-Clause), FAISS (MIT), Sentence Transformers (Apache-2.0), shadcn/ui (MIT), Recharts (MIT)
+- React (MIT), Flask (BSD-3-Clause), FAISS (MIT), Sentence Transformers (Apache-2.0), shadcn/ui (MIT), Recharts (MIT)
 
 ---
 
 ## 🙏 Acknowledgments
 
-* **FAISS**
-* **Sentence Transformers**
-* **React Query**
-* **shadcn/ui**
-* **Framer Motion**
-* **Recharts**
-* **Atlan Documentation & Developer Hub** for domain context
+- **FAISS**
+- **Sentence Transformers**
+- **React Query**
+- **shadcn/ui**
+- **Framer Motion**
+- **Recharts**
+- **Atlan Documentation & Developer Hub** for domain context
 
 ---
 
 ## 📞 Support & Community
 
-* Read this README & inline comments
-* Search or open issues: [https://github.com/your-username/ai-helpdesk-system/issues](https://github.com/your-username/ai-helpdesk-system/issues)
-* Start a discussion for ideas and feedback
+- Read this README & inline comments
+- Search or open issues: [https://github.com/your-username/ai-helpdesk-system/issues](https://github.com/your-username/ai-helpdesk-system/issues)
+- Start a discussion for ideas and feedback
 
 ```
+
 ```
